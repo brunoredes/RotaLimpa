@@ -49,6 +49,30 @@ namespace RotaLimpa.Api.Controllers
             }
         }
 
+        [HttpPost("RegistrarRua")]
+         public async Task<IActionResult> RegistrarRuaAsync([FromBody] Rua rua)
+        {
+            try
+            {
+                // Aqui você pode adicionar lógica para salvar a rua no seu banco de dados.
+                // Você pode usar Entity Framework Core ou qualquer outra tecnologia de acesso a dados.
+                
+                // Exemplo de lógica de salvamento fictícia:
+                // _dbContext.Ruas.Add(rua);
+                // await _dbContext.SaveChangesAsync();
+
+                await _context.Ruas.AddAsync(rua);
+                await _context.SaveChangesAsync();
+
+                // Retorna um sucesso HTTP 201 (Created) com a rua criada.
+                return CreatedAtAction(nameof(ObterRuaPorId), new { id = rua.Id }, rua);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

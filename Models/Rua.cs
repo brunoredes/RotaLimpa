@@ -30,5 +30,11 @@ namespace RotaLimpa.Api.Models
         [NotNull]
         public int Id_Rota { get; set; }
         public Rota Rota { get; set; }
+
+        public string Nome_Rua { get; set; }
+        public string LatInicio { get; set; }
+        public string LngInicio { get; set; }
+        public string LatFim { get; set; }
+        public string LngFim { get; set; }
     }
 }
