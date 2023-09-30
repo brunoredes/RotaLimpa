@@ -58,10 +58,9 @@ namespace RotaLimpa.Api.Controllers
                 // Você pode usar Entity Framework Core ou qualquer outra tecnologia de acesso a dados.
 
                 await _context.Ruas.AddAsync(rua);
-                await _context.SaveChangesAsync();
+                int linhaAfetadas = await _context.SaveChangesAsync();
 
-                // Retorna um sucesso HTTP 201 (Created) com a rua criada.
-                return CreatedAtAction(nameof(ObterRuaPorId), new { id = rua.Id }, rua);
+                return Ok(linhaAfetadas);
             }
             catch (Exception ex)
             {
