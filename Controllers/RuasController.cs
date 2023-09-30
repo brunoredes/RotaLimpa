@@ -56,10 +56,6 @@ namespace RotaLimpa.Api.Controllers
             {
                 // Aqui você pode adicionar lógica para salvar a rua no seu banco de dados.
                 // Você pode usar Entity Framework Core ou qualquer outra tecnologia de acesso a dados.
-                
-                // Exemplo de lógica de salvamento fictícia:
-                // _dbContext.Ruas.Add(rua);
-                // await _dbContext.SaveChangesAsync();
 
                 await _context.Ruas.AddAsync(rua);
                 await _context.SaveChangesAsync();
